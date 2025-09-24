@@ -2,4 +2,21 @@
 
 <p><%= @user.email_address %></p>
 
+<h2>API Token</h2>
+
+<% if @api_token %>
+  <ul>
+    <li>Created At: <%= @api_token.created_at %>
+    <li>Expires At: <%= @api_token.expires_at %>
+  </ul>
+<% else %>
+  <ul>
+    <li>None</li>
+  </ul>
+<% end %>
+
+<p>
+  <%= button_to 'Create token', api_tokens_path, method: :post %>
+</p>
+
 <%= button_to "Logout", session_path, method: :delete %>

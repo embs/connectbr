@@ -14,5 +14,6 @@ class UsersController < ApplicationController
   def show
     resume_session
     @user = Current.user
+    @api_token = @user.api_token
   end
 end

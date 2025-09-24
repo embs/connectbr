@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_09_23_232115) do
+ActiveRecord::Schema[8.0].define(version: 2025_09_24_004012) do
+  create_table "api_tokens", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "value"
+    t.datetime "expires_at"
+    t.boolean "displayed", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_api_tokens_on_user_id"
+  end
+
   create_table "sessions", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "ip_address"

@@ -1,0 +1,9 @@
+<h1>Create user</h1>
+
+<%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
+
+<%= form_with url: users_path do |form| %>
+  <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address] %><br>
+  <%= form.password_field :password, required: true, placeholder: "Enter your email password" %><br>
+  <%= form.submit "Create User" %>
+<% end %>
